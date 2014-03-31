@@ -9,11 +9,11 @@ Mars Rover code kata.
 
 ### Tests
 
-   npm run test
+    npm run test
 
 ### Usage
 
-  ./rovermars.js
+    ./rovermars.js
 
 1. Set the size of the grid. It will be a square, so pick any number between 0 and 100.
 2. Give instructions on what you want the rover to do.
