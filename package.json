@@ -6,11 +6,12 @@
     "prompt": "~0.2.12",
     "jasmine-node": "~1.14.3"
   },
-  "main": "main.js",
+  "main": "rovermars.js",
   "engines": {
     "node": ">=0.10"
   },
   "scripts": {
+    "postinstall": "chmod u+x rovermars.js",
     "test": "jasmine-node ./tests"
   }
 }
