@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 var prompt = require('prompt');
 var readline = require('readline');
-var Mars = require('mars');
+var Mars = require('./mars');
 
 var env;
 
@@ -23,7 +23,7 @@ console.log('Let\'s set up your grid before you start moving the Rover around.')
 
 prompt.start();
 
-prompt.get(opts, function (err, results) {
+prompt.get(opts, function (err, result) {
   if (err) {
     console.log();
     process.exit(0);
