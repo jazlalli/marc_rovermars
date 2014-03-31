@@ -1,26 +1,5 @@
 var Mars = require('../mars');
 
-describe('position', function () {
-  var rover;
-
-  beforeEach(function () {
-    rover = new Mars(10);
-  });
-  
-  it('should move forward one position when receiving F signal', function (done) {
-    rover.moveForwards();
-    expect(rover.position.X).toBe(1);
-    done();
-  });
-
-  it('should move forward one position when receiving B signal', function (done) {
-    rover.moveBackwards();
-    expect(rover.position.Y).toBe(rover.size - 1);
-    done();
-  });
-
-});
-
 describe('orientation', function () {
   var rover;
 

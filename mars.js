@@ -8,11 +8,36 @@ var Mars = function (size) {
 }
 
 Mars.prototype.moveForwards = function() {
-  if (this.position.X === this.size - 1) {
-    this.position.X = 0;
-  } else {
-    this.position.X += 1;
+  var axis = 'X';
+  var direction = '+';
+
+  if (this.orientation === 3) {
+    axis = 'Y';
   }
+    
+  if (this.orientation === 9) {
+    axis = 'Y';
+    direction = '-';
+  }
+
+  if (this.orientation === 6) {
+    direction = '-';
+  }
+
+  if (direction === '+') {
+    if (this.position[axis] === this.size - 1) {
+      this.position[axis] = 0;
+    } else {
+      this.position[axis] += 1;
+    }
+  } else {
+    if (this.position[axis] === 0) {
+      this.position[axis] = this.size - 1;
+    } else {
+      this.position[axis] -= 1;
+    }
+  }
+  
 };
 
 Mars.prototype.moveBackwards = function() {
