@@ -7,22 +7,29 @@ var Mars = function (size) {
   };
 }
 
+function getDirection(orientation) {
+  if (!orientation)
+    return null;
+
+  if (orientation === 6 || orientation === 9)
+    return '-';
+  else
+    return '+';
+}
+
+function getAxis(orientation) {
+  if (!orientation)
+    return null;
+
+  if (orientation === 12 || orientation === 6)
+    return 'X';
+  else
+    return 'Y';
+}
+
 Mars.prototype.moveForwards = function() {
-  var axis = 'X';
-  var direction = '+';
-
-  if (this.orientation === 3) {
-    axis = 'Y';
-  }
-    
-  if (this.orientation === 9) {
-    axis = 'Y';
-    direction = '-';
-  }
-
-  if (this.orientation === 6) {
-    direction = '-';
-  }
+  var axis = getAxis(this.orientation);
+  var direction = getDirection(this.orientation);
 
   if (direction === '+') {
     if (this.position[axis] === this.size - 1) {
@@ -41,11 +48,23 @@ Mars.prototype.moveForwards = function() {
 };
 
 Mars.prototype.moveBackwards = function() {
-  if (this.position.Y === 0) {
-    this.position.Y = this.size - 1;
+  var axis = getAxis(this.orientation);
+  var direction = getDirection(this.orientation);
+
+  if (direction === '+') {
+    if (this.position[axis] === 0) {
+      this.position[axis] = this.size - 1;
+    } else {
+      this.position[axis] -= 1;
+    }
   } else {
-    this.position.Y -= 1;
+    if (this.position[axis] === this.size - 1) {
+      this.position[axis] = 0;
+    } else {
+      this.position[axis] += 1;
+    }
   }
+
 };
 
 Mars.prototype.turnRight = function() {
