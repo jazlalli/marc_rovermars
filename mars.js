@@ -9,9 +9,9 @@ var Mars = function (size, obstacleCount) {
   this.obstacleCount = obstacleCount;
   this.obstacles = [];
 
-  this.setObstacles.call(this);
+  setObstacles.call(this, obstacleCount);
 
-  console.log('i have', obstacleCount, 'obstacles located at', obstacles);
+  console.log('i have', this.obstacleCount, 'obstacles located at', this.obstacles);
 }
 
 function getDirection(orientation) {
@@ -35,14 +35,13 @@ function getAxis(orientation) {
 }
 
 function setObstacles(count) {
-  var obstacle = {
-    X: null,
-    Y: null
-  };
+  var obstacle;
 
   for (var i = count - 1; i >= 0; i--) {
-    obstacle.X = Math.round(Math.random() * this.size) + 1;
-    obstacle.Y = Math.round(Math.random() * this.size) + 1;
+    obstacle = {
+      X: Math.round(Math.random() * (this.size - 1)),
+      Y: Math.round(Math.random() * (this.size - 1))
+    };
 
     this.obstacles.push(obstacle);
   };

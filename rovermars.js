@@ -38,7 +38,12 @@ prompt.get(opts, function (err, result) {
   } else {
     marsRover = new Rover(result.size, result.obstacles);
 
-    console.log('Setting grid size to', result.size, 'x', result.size, 'with', result.obstacles, 'obstacles');
+    console.log('Setting grid size to', result.size, 'x', result.size, 'with', result.obstacles, 'obstacles at:');
+    
+    for (var i = result.obstacles - 1; i >= 0; i--) {
+      console.log(marsRover.obstacles[i]);
+    };
+
     console.log('Right, where do you want me to go (F, B, L or R)?');
     console.log();
 
