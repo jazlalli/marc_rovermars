@@ -35,7 +35,7 @@ prompt.get(opts, function (err, result) {
     marsRover = new Rover(result.size);
 
     console.log('Setting grid size to:', result.size, 'x', result.size);
-    console.log('Right, where do you want me to go?');
+    console.log('Right, where do you want me to go (F, B, L or R)?');
     console.log();
 
     var repl = readline.createInterface({
@@ -45,7 +45,7 @@ prompt.get(opts, function (err, result) {
     });
 
     repl.on('line', function (input) {
-      var valid = ['F', 'B', '<', '>'];
+      var valid = ['F', 'B', 'L', 'R'];
 
       if (valid.indexOf(input) === -1) {
         console.log('Sorry, I can only go F, B, < or >');
@@ -59,12 +59,12 @@ prompt.get(opts, function (err, result) {
             marsRover.moveBackwards();
             printRoverDetails(marsRover);
             break;
-          case '>':
-            marsRover.turnRight();
+          case 'L':
+            marsRover.turnLeft();
             printRoverDetails(marsRover);
             break;
-          case '<':
-            marsRover.turnLeft();
+          case 'R':
+            marsRover.turnRight();
             printRoverDetails(marsRover);
             break;
         }

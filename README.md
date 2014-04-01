@@ -26,8 +26,8 @@ then you can run it like so
 ##### Instructions
 
 1. Set the size of the grid. It will be a square, so pick any number between 0 and 100.
-2. Give instructions on what you want the rover to do.
+2. Give instructions on what you want the rover to do (one at a time).
   * F moves forwards
   * B moves backwards
-  * > turns rover 90deg clockwise
-  * < turns rover 90deg anti-clockwise
+  * R turns rover 90deg clockwise
+  * L turns rover 90deg anti-clockwise
