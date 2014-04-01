@@ -1,0 +1,16 @@
+{
+  "name": "marc_rovermars",
+  "author": "Jasdeep Lalli",
+  "dependencies": {
+    "minimist": "0.0.8",
+    "prompt": "~0.2.12",
+    "jasmine-node": "~1.14.3"
+  },
+  "main": "rovermars.js",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "scripts": {
+    "test": "jasmine-node ./tests"
+  }
+}
