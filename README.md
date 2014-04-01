@@ -15,7 +15,7 @@ Mars Rover code kata.
 
     node rovermars.js
 
-or if you're on UNIX system and prefer running it like an executable, do
+or if you're using a UNIX system and prefer running it like an executable, do
 
     chmod u+x rovermars.js
 
@@ -26,7 +26,8 @@ then you can run it like so
 ##### Instructions
 
 1. Set the size of the grid. It will be a square, so pick any number between 0 and 100.
-2. Give instructions on what you want the rover to do (one at a time).
+2. Specify the number of obstacles you want on the grid. These will be randomly positioned on the grid.
+3. Give instructions on what you want the rover to do (one at a time).
   * F moves forwards
   * B moves backwards
   * R turns rover 90deg clockwise
