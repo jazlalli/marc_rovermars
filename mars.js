@@ -13,7 +13,7 @@ var Mars = function (size, obstacleCount) {
 }
 
 // setup the desired number of obstacles in random locations
-function setObstacles(count) {
+function setupObstacles(count) {
   var obstacle;
 
   for (var i = count - 1; i >= 0; i--) {
