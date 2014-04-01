@@ -47,6 +47,7 @@ prompt.get(opts, function (err, result) {
 
     console.log();
     console.log('Right, where do you want me to go (F, B, L or R)?');
+    console.log();
 
     var repl = readline.createInterface({
       input: process.stdin,

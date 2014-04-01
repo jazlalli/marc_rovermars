@@ -1,7 +1,4 @@
-
 var Mars = function (size, obstacleCount) {
-  
-  // object properties
   this.size = size;
   this.orientation = 12;
   this.position = {
@@ -16,7 +13,7 @@ var Mars = function (size, obstacleCount) {
 }
 
 // setup the desired number of obstacles in random locations
-function setupObstacles(count) {
+function setObstacles(count) {
   var obstacle;
 
   for (var i = count - 1; i >= 0; i--) {
