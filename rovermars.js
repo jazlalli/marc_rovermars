@@ -11,6 +11,10 @@ var opts = {
       pattern: /^[1-9][0-9]?$|^100$/,
       message: 'Size must be bigger than 1X1 and can be up to 100X100',
       required: true
+    },
+    obstacles: {
+      description: 'How many randomly placed obstacles should be on the grid?',
+      required: true
     }
   }
 };
@@ -32,9 +36,9 @@ prompt.get(opts, function (err, result) {
   if (err) {
     process.exit(0);
   } else {
-    marsRover = new Rover(result.size);
+    marsRover = new Rover(result.size, result.obstacles);
 
-    console.log('Setting grid size to:', result.size, 'x', result.size);
+    console.log('Setting grid size to', result.size, 'x', result.size, 'with', result.obstacles, 'obstacles');
     console.log('Right, where do you want me to go (F, B, L or R)?');
     console.log();
 
