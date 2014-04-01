@@ -10,8 +10,19 @@ var Mars = function (size, obstacleCount) {
   this.obstacles = [];
 
   setObstacles.call(this, obstacleCount);
+}
 
-  console.log('i have', this.obstacleCount, 'obstacles located at', this.obstacles);
+function setObstacles(count) {
+  var obstacle;
+
+  for (var i = count - 1; i >= 0; i--) {
+    obstacle = {
+      X: Math.round(Math.random() * (this.size - 1)),
+      Y: Math.round(Math.random() * (this.size - 1))
+    };
+
+    this.obstacles.push(obstacle);
+  };
 }
 
 function getDirection(orientation) {
@@ -34,18 +45,39 @@ function getAxis(orientation) {
     return 'Y';
 }
 
-function setObstacles(count) {
-  var obstacle;
+/*
+  TODO
+  factoring out move functionality so that it returns 
+  the new coords rather than just moving straight there.
+  needed in order to check for obstacles
+*/
+function move(currentLocation, axis, direction) {
 
-  for (var i = count - 1; i >= 0; i--) {
-    obstacle = {
-      X: Math.round(Math.random() * (this.size - 1)),
-      Y: Math.round(Math.random() * (this.size - 1))
-    };
-
-    this.obstacles.push(obstacle);
-  };
+  if (direction === '+') {
+    if (currentLocation[axis] === this.size - 1) {
+      currentLocation[axis] = 0;
+    } else {
+      currentLocation[axis] += 1;
+    }
+  } else {
+    if (this.position[axis] === 0) {
+      this.position[axis] = this.size - 1;
+    } else {
+      this.position[axis] -= 1;
+    }
+  }
 }
+
+/*
+  TODO
+  will inspect the coords that we're about to move to making
+  sure there isn't an obstacle in the way.
+*/
+function checkForObstacles(axis, direction) {
+  for (var i = this.obstacles.length - 1; i >= 0; i--) {
+    
+  };
+};
 
 Mars.prototype.moveForwards = function() {
   var axis = getAxis(this.orientation);
@@ -71,17 +103,17 @@ Mars.prototype.moveBackwards = function() {
   var axis = getAxis(this.orientation);
   var direction = getDirection(this.orientation);
 
-  if (direction === '+') {
-    if (this.position[axis] === 0) {
-      this.position[axis] = this.size - 1;
-    } else {
-      this.position[axis] -= 1;
-    }
-  } else {
+  if (direction === '-') {
     if (this.position[axis] === this.size - 1) {
       this.position[axis] = 0;
     } else {
       this.position[axis] += 1;
+    }
+  } else {
+    if (this.position[axis] === 0) {
+      this.position[axis] = this.size - 1;
+    } else {
+      this.position[axis] -= 1;
     }
   }
 
