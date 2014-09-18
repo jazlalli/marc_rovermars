@@ -15,7 +15,7 @@ Mars Rover code kata.
 
     node rovermars.js
 
-or if you're using a UNIX system and prefer running it like an executable, do
+or if you're using a [UNIX system](https://www.youtube.com/watch?v=dFUlAQZB9Ng) and prefer running it like an executable, do
 
     chmod u+x rovermars.js
 
